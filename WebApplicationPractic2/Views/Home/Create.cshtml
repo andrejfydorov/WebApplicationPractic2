@@ -1,0 +1,42 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model WebApplicationPractic2.Models.Band
+@{
+
+}
+
+<h4>Band</h4>
+ <div class="edit-block">
+    @using (Html.BeginForm("Create", "Home" ))
+    {
+        <div class="dataBox">
+            <label>Название коллектива</label><br />
+            @Html.TextBoxFor(m => m.Name, new { @class = "text-box" })
+        </div>
+        <div class="dataBox">
+            <label>Год основания</label><br />
+            @Html.TextBoxFor(m => m.Year, "2020", new { type = "number", @class = "text-box" })
+        </div>
+        <div class="dataBox">
+            <label>Страна</label><br />
+            @Html.DropDownList("Country", 
+            new SelectList(new string[] { "USA", "Great Breatain", "Russia"}), "")
+        </div>
+        <div class="dataBox" style="vertical-align: central">
+            <label style="vertical-align: central">Жанры</label><br />
+            <select multiple="multiple">
+                <option>Rock</option>
+                <option>Blues</option>
+                <option>Funk</option>
+                <option>Jazz</option>
+            </select>
+        </div>
+        <div class="dataBox">
+            <input type="submit" value="Сохранить" />
+        </div>
+    }
+ </div>
+ <div>
+    <a asp-action="Index">Back to List</a>
+ </div>
